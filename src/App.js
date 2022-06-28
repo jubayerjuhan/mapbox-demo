@@ -3,7 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRef, useEffect, useState } from "react";
 import mapboxgl from "mapbox-gl";
 import "./app.css";
+
 const App = () => {
+  // eslint-disable-next-line import/no-webpack-loader-syntax
+  mapboxgl.workerClass =
+    // eslint-disable-next-line import/no-webpack-loader-syntax
+    require("worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker").default;
+
+  //
   mapboxgl.accessToken =
     "pk.eyJ1IjoianViYXllcmp1aGFuIiwiYSI6ImNrdXI0cHFseTE4bWIyb3FybDdreWNpNDQifQ.ZlyPUhzJalEYFiinkw1ydg";
 
